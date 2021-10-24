@@ -1,0 +1,257 @@
+html {
+    position: relative;
+}
+body {
+    margin-bottom: 50px;
+    margin-top: 50px;
+    box-shadow: 3px 3px 10px rgba(22, 143, 241, 0.986);
+    font-family: Viga;
+}
+.jumbotron h1, .jumbotron h4, .jumbotron h2 {
+    color: #eaeaea;
+    text-shadow: 1px 1px 10px  rgba(1, 37, 136, 0.5);
+    font-weight: bold;
+}
+
+.jumbotron {
+    background-image: url(img/Jumbotron.png);
+    background-attachment: fixed;
+    background-size: cover;
+    overflow: hidden;
+
+}
+.jumbotron img {
+    width: 300px;
+    height: 310px;
+    border: 4px solid white;
+}
+.nav-item, .nav-link {
+    text-transform: uppercase;
+    margin-right: 30px;
+} 
+
+.nav-item, .nav-link:hover::after {
+    content: '';
+    display: block;
+    border-bottom: 3px solid white;
+    width: 50%;
+    margin: auto;
+    padding-bottom: 5px;
+    margin-bottom: -8px;
+}
+h2, h3 {
+    text-align: center
+}
+.kontak {
+    background-color: #eee;
+}
+.about hr, .portfolio hr, .contact hr {
+    width: 250px;
+    border: 3px solid #999;
+    margin-bottom: 40px;
+}
+
+section {
+    min-height: 500px;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #333;
+}
+.about {
+    min-height: 520px;
+
+}
+
+.about .pKiri, .about .pKanan {
+    opacity: 0;
+    transform: translate(-60px, 0) rotate(15deg);
+    transition: 1s;
+}
+.about .pKanan {
+    transform: translate(60px, 0) rotate(-15deg);
+}
+.about .pKiri.pMuncul, .about .pKanan.pMuncul {
+    opacity: 1;
+    transform: translate(0,0);
+}
+
+
+.portfolio {
+    min-height: 750px;
+    background-color: #ddd;
+}
+.portfolio .thumbnail {
+    opacity: 0;
+    transform: translate(0, -50px);
+    transition: .5s;
+}
+.portfolio .thumbnail.muncul {
+    opacity: 1;
+    transform: translate(0,0);
+}
+.card {
+    margin-bottom: 40px;
+    height: 600px;
+}
+.card .card-text {
+    opacity: 0;
+    transform: translate(0, -50px);
+    transition: .5s;
+}
+
+.card .card-text.muncul {
+    opacity: 1;
+    transform: translate(0,0);
+}
+
+
+.contact {
+    min-height: 700px;
+}
+
+footer p {
+    color: white;
+    font-size: .9em;   
+    padding-top: 10px;
+}
+
+footer a {
+    color:chartreuse;
+}
+
+footer:hover a {
+    background-color:#eee;
+}
+
+footer p i {
+    color: salmon;
+}
+
+        /* Media Query */
+
+        @media (min-width:280px) {
+            .portfolio {
+                margin-top: 100px;  
+            }
+            .portfolio ul li {
+                    margin-left:-46px;    
+            }
+            .contact {
+                margin-top: 50px;
+            } 
+        }
+        
+        
+        
+        @media (min-width:750px) {
+            .portfolio ul li {
+                margin-left:0;
+                margin-top:20px;
+            }
+            .portfolio {
+                min-height:550px
+            }
+        }
+
+
+
+                        /*      Overlay     */
+
+.overlay {
+        width: 0;
+        height: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0);
+        z-index: 99999;
+        padding: 100px 50px;
+        text-align: center;
+}
+.overlay:target {
+    height: auto;
+    width: auto;
+    right: 0;
+    bottom: 0;
+    background-color:rgba(0, 0, 0, .7);
+}
+
+.overlay img {
+    max-height: 100%;
+    max-width: 100%;
+    box-shadow: 2px 2px 7px rgba(0, 0, 0, .5);
+}
+.overlay:target img {
+    animation: zoomdanfade 1.2s; 
+}
+.overlay .close {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    top: 50px;
+    position: absolute;
+    text-align: center;
+    color:white;
+    background-color:black;
+    border: 1px solid white;
+    text-decoration: none;
+    line-height:20px;
+    left: 50%;
+    margin-left:-30px;
+    opacity: 0;
+}  
+.overlay:target .close {
+    animation: SlideDownFade .5s .5s forwards;
+}
+
+                    /*      animasi Lightbox     */
+
+
+
+@keyframes zoomdanfade {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    
+}
+@keyframes SlideDownFade {
+    0% {
+        opacity: 0;
+        margin-top: -20px;
+    }
+    100% {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+
+
+						/*		clearfix 		*/
+
+.cf:before,
+.cf:after {
+	content: " ";
+	/* 1 */
+	display: table;
+	/* 2 */
+}
+
+.cf:after {
+	clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+	*zoom: 1;
+}
